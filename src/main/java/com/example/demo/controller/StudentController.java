@@ -10,6 +10,7 @@ public class StudentController {
     @PostMapping("/student")
     public  String addStudent(Student student){
         return "Student Added" + student;
+
     }
 
 }

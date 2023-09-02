@@ -13,7 +13,6 @@ public class Student {
     Long id ;
 
 
-
     @Column (name = "name")
     String name;
 

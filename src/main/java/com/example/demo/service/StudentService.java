@@ -4,6 +4,7 @@ import com.example.demo.repository.StudentRepository;
 import com.example.demo.entity.Student;
 
 public class StudentService {
+
 private StudentRepository studentRepository;
 
   public StudentService (StudentRepository studentRepository){
