@@ -1,6 +1,11 @@
 package org.example;
+//import Input.ReadingInput;
 import ListOfProducts.ProductList;
 import Services.*;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
@@ -11,7 +16,7 @@ import java.util.concurrent.Future;
 public class Main {
     public static void main(String[] args) {
 
-
+       // ReadingInput Fuck1 = new ReadingInput();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter space-separated pairs of values (e.g., key1 value1 key2 value2): ");
         String userInput = scanner.nextLine();
@@ -29,6 +34,8 @@ public class Main {
         // Close the scanner when you're done with it (optional, but good practice)
         scanner.close();
         System.out.println("Hello world!");
+        LocalDateTime currentTime1 = LocalDateTime.now();
+        System.out.println(currentTime1);
         ExecutorService executor = Executors.newFixedThreadPool(3);
         ProductList Li = new ProductList();
         HashMap<String,Integer>ListOfAll = Li.ProductionLis1();
@@ -41,6 +48,8 @@ public class Main {
         Future<Integer>G = executor.submit(gst);
 
  try{
+     LocalDateTime currentTime2 = LocalDateTime.now();
+     System.out.println(currentTime2);
 
      Integer Price = P.get() ;
       if (Price == -1) {
@@ -56,6 +65,9 @@ public class Main {
      System.out.println(" GST " + GST);
      Integer sum = Price + Taxes + GST;
      System.out.println(sum);
+
+
+     System.out.println("Time difference");
  }catch (InterruptedException | ExecutionException e){
      e.printStackTrace();
  }
