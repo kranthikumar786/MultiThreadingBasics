@@ -1,20 +1,37 @@
 package Passenger;
 
-import Bus.Bus;
+import Bus.*;
 
-public class Passenger  extends  Thread{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Passenger extends Thread {
 
     private  String name;
-    private int numSeats;
-    private Bus bus;
-
-    public Passenger(String name, int numSeats,Bus bus){
+    private int bookedSeats;
+    public Bus bus;
+    public Passenger(String name){
         this.name = name;
-        this.numSeats=numSeats;
-        this.bus=bus;
+    }
+    public int getBookedSeats() {
+        return bookedSeats;
+    }
+    public String getName1(){
+        return name;
+    }
+    public void setBookedSeats(int bookedSeats){
+        this.bookedSeats = bookedSeats;
     }
     @Override
-    public void run() {
-        bus.bookSeats(name, numSeats);
+     public void run(){
+        // Simulate passsenger booking behaviour here
+        List<Integer> selectedSeats = new ArrayList<>();
+        for ( int i = 1 ;i <= bookedSeats ; i++){
+            selectedSeats.add(i);
+        }
+         if (bus != null) {
+             bus.bookSeats(this, bookedSeats, selectedSeats);
+          }
     }
+
 }
